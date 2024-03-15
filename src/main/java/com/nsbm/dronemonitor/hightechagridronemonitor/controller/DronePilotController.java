@@ -13,7 +13,7 @@ public class DronePilotController {
     DronePilotServices dronePilotServices;
 
     //@GetMapping ()
-    @RequestMapping(value = "/dronePilot", method = RequestMethod.POST)
+    @RequestMapping(value = "/dronePilots", method = RequestMethod.POST)
     public DronePilot save(@RequestBody DronePilot dronePilot) {return DronePilotServices.save(dronePilot);}
 
 

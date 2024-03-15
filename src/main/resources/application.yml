@@ -1,5 +1,5 @@
 server:
-  Port:8080
+  port: 3001
 
 management:
   endpoints:
@@ -18,7 +18,8 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: create
+      ddl-auto: update
+
 
 
 

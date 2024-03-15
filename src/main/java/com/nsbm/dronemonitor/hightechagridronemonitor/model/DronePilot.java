@@ -2,9 +2,10 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.util.Date;
 
 @Entity
@@ -13,6 +14,7 @@ public class DronePilot {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pilotId;
     private String pilotName;
 

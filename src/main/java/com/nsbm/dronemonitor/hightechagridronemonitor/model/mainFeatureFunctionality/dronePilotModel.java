@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "drone_pilot")
-public class dronePilot {
+public class dronePilotModel {
 
 
     @Id

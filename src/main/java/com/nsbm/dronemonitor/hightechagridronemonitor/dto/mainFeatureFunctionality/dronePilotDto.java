@@ -2,7 +2,7 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctional
 
 import java.util.Date;
 
-public class DronePilotDTO {
+public class dronePilotDto {
     private String name;
     private String address;
     private String tel;

@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.model;
+package com.nsbm.dronemonitor.hightechagridronemonitor.model.mainFeatureFunctionality;
 
 
 import jakarta.persistence.Entity;

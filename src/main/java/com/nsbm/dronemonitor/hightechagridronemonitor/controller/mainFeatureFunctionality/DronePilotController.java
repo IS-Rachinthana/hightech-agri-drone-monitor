@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.controller;
+package com.nsbm.dronemonitor.hightechagridronemonitor.controller.mainFeatureFunctionality;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.nsbm.dronemonitor.hightechagridronemonitor.dto.DronePilotDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.model.DronePilot;
-import com.nsbm.dronemonitor.hightechagridronemonitor.repository.DronePilotRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.DronePilotDTO;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.mainFeatureFunctionality.DronePilot;
+import com.nsbm.dronemonitor.hightechagridronemonitor.repository.mainFeatureFunctionality.DronePilotRepository;
 
 import java.util.List;
 

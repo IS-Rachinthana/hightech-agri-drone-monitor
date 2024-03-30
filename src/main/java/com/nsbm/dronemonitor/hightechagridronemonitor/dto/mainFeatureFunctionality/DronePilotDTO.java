@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.dto;
+package com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality;
 
 import java.util.Date;
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class ClientInformationController {
+public class clientInformationController {
     @Autowired
     //ClientInformationService clientInformationService;
     private ClientInformationRepository clientInformationRepository;

@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.controller;
+package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
 import com.nsbm.dronemonitor.hightechagridronemonitor.Job.dto.ClientInformationDTO;
 import com.nsbm.dronemonitor.hightechagridronemonitor.Job.model.ClientInformation;

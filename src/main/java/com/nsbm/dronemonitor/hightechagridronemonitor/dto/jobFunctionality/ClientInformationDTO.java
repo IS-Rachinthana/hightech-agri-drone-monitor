@@ -1,18 +1,43 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality;
 
 public class ClientInformationDTO {
-    private String name;
-    private int number;
-    private String email;
-    private String address;
+    private String clientName;
+    private int contactNumber;
 
-    // Getters and Setters
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public int getNumber() { return number; }
-    public void setNumber(int number) { this.number = number; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public int getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(int contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getClientEmail() {
+        return clientEmail;
+    }
+
+    public void setClientEmail(String clientEmail) {
+        this.clientEmail = clientEmail;
+    }
+
+    public String getClientAddress() {
+        return clientAddress;
+    }
+
+    public void setClientAddress(String clientAddress) {
+        this.clientAddress = clientAddress;
+    }
+
+    private String clientEmail;
+    private String clientAddress;
+
+
 }

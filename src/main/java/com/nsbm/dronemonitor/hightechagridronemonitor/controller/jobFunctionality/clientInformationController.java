@@ -28,10 +28,10 @@ public class clientInformationController {
 
     private ClientInformation convertToEntity(ClientInformationDTO dto) {
         ClientInformation ClientInformation = new ClientInformation();
-        ClientInformation.setClientName(dto.getName());
-        ClientInformation.setClientAddress(dto.getAddress());
-        ClientInformation.setContactNumber(dto.getNumber());
-        ClientInformation.setClientEmail(dto.getEmail());
+        ClientInformation.setClientName(dto.getClientName());
+        ClientInformation.setClientAddress(dto.getClientAddress());
+        ClientInformation.setContactNumber(dto.getContactNumber());
+        ClientInformation.setClientEmail(dto.getClientEmail());
         // Handle the rest of the mapping
         return ClientInformation;
     }

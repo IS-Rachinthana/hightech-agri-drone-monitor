@@ -18,7 +18,7 @@ public class dronePilotController {
     @Autowired
     private com.nsbm.dronemonitor.hightechagridronemonitor.repository.mainFeatureFunctionality.dronePilotRepository dronePilotRepository;
 
-    @PostMapping("/dronePilotModel")
+    @PostMapping("/dronePilot")
     public ResponseEntity<dronePilotModel> save(@RequestBody dronePilotDto dronePilotDTO) {
         dronePilotModel dronePilotModel = convertToEntity(dronePilotDTO);
         dronePilotModel = dronePilotRepository.save(dronePilotModel);

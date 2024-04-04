@@ -1,7 +1,7 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.service;
+package com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.model.WeatherCondition;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.WeatherCondition;
 
 public interface WeatherConditionService {
-    WeatherCondition save(WeatherCondition weatherCondition);
+    static WeatherCondition save(WeatherCondition weatherCondition){return null;}
 }

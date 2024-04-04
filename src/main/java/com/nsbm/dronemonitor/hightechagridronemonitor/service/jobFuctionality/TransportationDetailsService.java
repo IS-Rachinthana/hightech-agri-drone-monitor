@@ -1,7 +1,7 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.service;
+package com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.model.TransportationDetails;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.TransportationDetails;
 
 public interface TransportationDetailsService {
-    TransportationDetails save(TransportationDetails transportationDetails);
+    static TransportationDetails save(TransportationDetails transportationDetails){return null;}
 }

@@ -1,7 +1,8 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.service;
+package com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.model.FieldDetails;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.FieldDetails;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.ClientInformation;
 
 public interface FieldDetailsService {
-    FieldDetails save(FieldDetails fieldDetails);
+    static FieldDetails save(FieldDetails fieldDetails){return null;}
 }

@@ -3,6 +3,8 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality;
 public class ClientInformationDTO {
     private String clientName;
     private int contactNumber;
+    private String clientEmail;
+    private String clientAddress;
 
     public String getClientName() {
         return clientName;
@@ -36,8 +38,7 @@ public class ClientInformationDTO {
         this.clientAddress = clientAddress;
     }
 
-    private String clientEmail;
-    private String clientAddress;
+
 
 
 }

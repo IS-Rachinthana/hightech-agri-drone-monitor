@@ -1,8 +1,8 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.controller;
+package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.dto.JobDetailsDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.model.JobDetails;
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.repository.JobDetailsRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.JobDetailsDTO;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.JobDetails;
+import com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.JobDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 public class JobDetailsController {
     @Autowired
     //JobDetailsService jobDetailsService;
-    private JobDetailsRepository jobDetailsRepository;
+    private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.JobDetailsRepository jobDetailsRepository;
 
     @PostMapping("/jobDescription")
     public ResponseEntity<JobDetails> save(@RequestBody JobDetailsDTO jobDetailsDTO) {

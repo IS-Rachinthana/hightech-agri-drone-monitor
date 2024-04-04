@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.service;
+package com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality;
 
 public class JobDetailsImpl {
 }

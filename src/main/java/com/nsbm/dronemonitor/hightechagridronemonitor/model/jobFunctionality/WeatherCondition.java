@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.model;
+package com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality;
 
 import jakarta.persistence.*;
 import jdk.jfr.Label;

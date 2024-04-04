@@ -1,8 +1,8 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.controller;
+package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.dto.TransportationDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.model.TransportationDetails;
-import com.nsbm.dronemonitor.hightechagridronemonitor.Job.repository.TransportationDetailsRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.TransportationDTO;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.TransportationDetails;
+import com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.TransportationDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
@@ -18,7 +17,7 @@ import java.util.List;
 public class TransportationDetailsController {
     @Autowired
    // TransportationDetailsService transportationDetailsService;
-    private TransportationDetailsRepository transportationDetailsRepository;
+    private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.TransportationDetailsRepository transportationDetailsRepository;
 
     @PostMapping("/transportationDetails")
     public ResponseEntity<TransportationDetails> save(@RequestBody TransportationDTO transportationDTO) {

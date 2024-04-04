@@ -2,7 +2,6 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionali
 
 import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.ClientInformationDTO;
 import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.ClientInformation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
-public class clientInformationController {
+public class ClientInformationController {
 
     @Autowired
     private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.ClientInformationRepository clientInformationRepository;

@@ -1,4 +1,4 @@
-package com.nsbm.dronemonitor.hightechagridronemonitor.Job.dto;
+package com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality;
 
 import java.util.Date;
 public class JobDetailsDTO {

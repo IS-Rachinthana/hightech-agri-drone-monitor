@@ -28,8 +28,10 @@ public class SecurityConfig {
                 // Configure URL authorization
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/registration").permitAll() // Allow unrestricted access to /registration
+                        .requestMatchers("/login").permitAll() // Allow unrestricted access to /login
                         .anyRequest().authenticated() // Require authentication for all other requests
                 )
+
                 // Configure HTTP Basic authentication
                 .httpBasic(Customizer.withDefaults());
 

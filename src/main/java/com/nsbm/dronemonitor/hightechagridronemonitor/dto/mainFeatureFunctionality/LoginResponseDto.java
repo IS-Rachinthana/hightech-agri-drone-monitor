@@ -2,9 +2,12 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctional
 
 public class LoginResponseDto {
     private String message;
+    private String token; // Add token field
 
     // Constructors
-    public LoginResponseDto() {
+    public LoginResponseDto(String message, String token) {
+        this.message = message;
+        this.token = token;
     }
 
     public LoginResponseDto(String message) {
@@ -18,5 +21,13 @@ public class LoginResponseDto {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

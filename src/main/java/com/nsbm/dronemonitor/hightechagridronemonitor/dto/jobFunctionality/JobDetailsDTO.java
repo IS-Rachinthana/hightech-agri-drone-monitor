@@ -1,21 +1,34 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality;
 
+import java.security.PrivateKey;
 import java.util.Date;
 public class JobDetailsDTO {
     private int jobId;
-    private int inventoryId;
+    private String inventoryId;
     private Date date;
     private int fieldLocation;
     private String companyProjectName;
+
+    private String jobDescription;
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
+    }
+
+
 
     // Getters and Setters
     public int getJobId() { return jobId; }
 
     public void setJobId(int jobId) { this.jobId = jobId; }
 
-    public int getInventoryId() { return inventoryId; }
+    public String getInventoryString() { return inventoryId; }
 
-    public void setInventoryId(int inventoryId) {this.inventoryId = inventoryId; }
+    public void setInventoryId(String inventoryId) {this.inventoryId = inventoryId; }
 
     public Date getDate() {
         return date;

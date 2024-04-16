@@ -6,17 +6,74 @@ import jdk.jfr.Label;
 @Entity
 @Table(name = "field_details")
 public class FieldDetails {
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String paddyFieldSize;
-    private int area;
 
-    // Getters and Setters
-    public String getPaddyFieldSize() { return paddyFieldSize; }
+    private int fieldId;
 
-    public void setPaddyFieldSize(String paddyFieldSize) { this.paddyFieldSize = paddyFieldSize; }
+    private String fieldName;
+    private String fieldSize;
+    private String area;
 
-    public int getArea() { return area; }
+    private int clientId;
 
-    public void setArea(int area) { this.area = area; }
+    private int fieldDescription;
+
+    public int getFieldDescription() {
+        return fieldDescription;
+    }
+
+    public void setFieldDescription(int fieldDescription) {
+        this.fieldDescription = fieldDescription;
+    }
+
+
+
+    public int getFieldId() {
+        return fieldId;
+    }
+
+    public void setFieldId(int fieldId) {
+        this.fieldId = fieldId;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    public String getFieldSize() {
+        return fieldSize;
+    }
+
+    public void setFieldSize(String fieldSize) {
+        this.fieldSize = fieldSize;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
+
+
+
+
 }

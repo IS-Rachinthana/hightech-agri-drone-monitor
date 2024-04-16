@@ -7,15 +7,27 @@ import java.util.Date;
 @Entity
 @Table(name = "transportation_details")
 public class TransportationDetails {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int transPortId;
     private String vehicleType;
     private String vehicleNumberPlate;
-    private Date departureTime;
-    private Date returnTime;
-    private String mileage;
 
-    // Getters and Setters
+    private Date departureTime;
+    private Date startTime;
+    private String mileage;
+    private int pilotId;
+
+    public int getTransPortId() {
+        return transPortId;
+    }
+
+    public void setTransPortId(int transPortId) {
+        this.transPortId = transPortId;
+    }
+
     public String getVehicleType() {
         return vehicleType;
     }
@@ -36,19 +48,34 @@ public class TransportationDetails {
         return departureTime;
     }
 
-    public void setDepartureTime(Date departureTime) { this.departureTime = departureTime; }
-
-    public Date getReturnTime() {
-        return returnTime;
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = departureTime;
     }
 
-    public void setReturnTime(Date returnTime) {
-        this.returnTime = returnTime;
+    public Date getstartTime() {
+        return startTime;
+    }
+
+    public void setstartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
     public String getMileage() {
         return mileage;
     }
 
-    public void setMileage(String mileage) { this.mileage = mileage; }
+    public void setMileage(String mileage) {
+        this.mileage = mileage;
+    }
+
+    public int getPilotId() {
+        return pilotId;
+    }
+
+    public void setPilotId(int pilotId) {
+        this.pilotId = pilotId;
+    }
+
+
+
 }

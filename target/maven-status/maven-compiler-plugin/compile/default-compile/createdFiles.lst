@@ -1,8 +1,8 @@
 com\nsbm\dronemonitor\hightechagridronemonitor\HightechAgriDroneMonitorApplication.class
 com\nsbm\dronemonitor\hightechagridronemonitor\repository\mainFeatureFunctionality\DronePilotRepository.class
-com\nsbm\dronemonitor\hightechagridronemonitor\config\webConfig.class
 com\nsbm\dronemonitor\hightechagridronemonitor\dto\mainFeatureFunctionality\DronePilotDto.class
 com\nsbm\dronemonitor\hightechagridronemonitor\model\mainFeatureFunctionality\DronePilotModel.class
+com\nsbm\dronemonitor\hightechagridronemonitor\config\WebConfig.class
 com\nsbm\dronemonitor\hightechagridronemonitor\controller\mainFeatureFunctionality\DronePilotController.class
 com\nsbm\dronemonitor\hightechagridronemonitor\service\mainFeatureFunctionality\DronePilotService.class
 com\nsbm\dronemonitor\hightechagridronemonitor\service\mainFeatureFunctionality\DronePilotServicesImpl.class

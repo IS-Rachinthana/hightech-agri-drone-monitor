@@ -1,9 +1,7 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.TransportationDetails;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.TransportationDetailsModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface TransportationDetailsRepository extends JpaRepository<TransportationDetails, Integer> {
+public interface TransportationDetailsRepository extends JpaRepository<TransportationDetailsModel, Integer> {
 }

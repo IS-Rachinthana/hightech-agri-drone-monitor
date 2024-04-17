@@ -1,42 +1,51 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.ClientInformationDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.ClientInformation;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.ClientInformationDto;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.ClientInformationModel;
+import com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.ClientInformationRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality.ClientInformationService;
+import com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality.ClientInformationImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
+//@RequestMapping("/clientInformation")
 public class ClientInformationController {
 
     @Autowired
-    private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.ClientInformationRepository clientInformationRepository;
+    private ClientInformationService clientInformationService;
 
-    @PostMapping("/ClientInformation")
-    public ResponseEntity<ClientInformation> save(@RequestBody ClientInformationDTO ClientInformationDTO) {
-        ClientInformation ClientInformation = convertToEntity(ClientInformationDTO);
-        ClientInformation = clientInformationRepository.save(ClientInformation);
-        return new ResponseEntity<>(ClientInformation, HttpStatus.CREATED);
+    @PostMapping ("/clientInformation")
+    public ResponseEntity<ClientInformationModel> createClient(@RequestBody ClientInformationDto clientInformationDto) {
+        ClientInformationModel newClient = clientInformationService.createClient(clientInformationDto);
+        return new ResponseEntity<>(newClient, HttpStatus.CREATED);
     }
 
-    private ClientInformation convertToEntity(ClientInformationDTO dto) {
-        ClientInformation ClientInformation = new ClientInformation();
-        ClientInformation.setClientName(dto.getClientName());
-        ClientInformation.setClientAddress(dto.getClientAddress());
-        ClientInformation.setContactNumber(dto.getContactNumber());
-        ClientInformation.setClientEmail(dto.getClientEmail());
-        // Handle the rest of the mapping
-        return ClientInformation;
+    @GetMapping("/clientInformation/{id}")
+    public ResponseEntity<ClientInformationModel> getClient(@PathVariable Integer id) {
+        ClientInformationModel client = clientInformationService.getClientById(id);
+        return ResponseEntity.ok(client);
     }
 
-    @GetMapping("/ClientInformation")
-    public ResponseEntity<List<ClientInformation>> getALLClientInformation() {
-        List<ClientInformation> ClientInformation=clientInformationRepository.findAll();
-        return ResponseEntity.ok(ClientInformation);
+    @GetMapping("/clientInformation")
+    public ResponseEntity<List<ClientInformationModel>> getAllClients() {
+        List<ClientInformationModel> clients = clientInformationService.getAllClients();
+        return ResponseEntity.ok(clients);
+    }
+
+    @PutMapping("/clientInformation/{id}")
+    public ResponseEntity<ClientInformationModel> updateClient(@PathVariable Integer id, @RequestBody ClientInformationDto clientInformationDto) {
+        ClientInformationModel updatedClient = clientInformationService.updateClient(id, clientInformationDto);
+        return ResponseEntity.ok(updatedClient);
+    }
+
+    @DeleteMapping("/clientInformation/{id}")
+    public ResponseEntity<?> deleteClient(@PathVariable Integer id) {
+        clientInformationService.deleteClient(id);
+        return ResponseEntity.ok("Client deleted successfully");
     }
 }

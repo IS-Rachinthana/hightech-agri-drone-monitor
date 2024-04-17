@@ -1,14 +1,29 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality;
 
 import jakarta.persistence.*;
-import jdk.jfr.Label;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "client_information")
-public class ClientInformation {
+public class ClientInformationModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int clientID;
+
+    private String clientName;
+
+    private String clientEmail;
+    private String contactNumber;
+
+    private String clientAddress;
+
+    private String clientFiledName;
 
     public int getClientID() {
         return clientID;
@@ -26,11 +41,11 @@ public class ClientInformation {
         this.clientName = clientName;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
@@ -58,12 +73,7 @@ public class ClientInformation {
         this.clientFiledName = clientFiledName;
     }
 
-    private String clientName;
-    private int contactNumber;
-    private String clientEmail;
-    private String clientAddress;
 
-    private String clientFiledName;
 
 
 

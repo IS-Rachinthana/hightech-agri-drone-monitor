@@ -1,54 +1,49 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.TransportationDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.TransportationDetails;
-import com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.TransportationDetailsRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.TransportationDetailsDto;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.TransportationDetailsModel;
+import com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality.TransportationDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 
 @RestController
+//@RequestMapping("/transportationDetails")
 public class TransportationDetailsController {
+
     @Autowired
-   // TransportationDetailsService transportationDetailsService;
-    private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.TransportationDetailsRepository transportationDetailsRepository;
+    private TransportationDetailsService transportationDetailsService;
 
     @PostMapping("/transportationDetails")
-    public ResponseEntity<TransportationDetails> save(@RequestBody TransportationDTO transportationDTO) {
-        TransportationDetails transportationDetails = convertToEntity(transportationDTO);
-        transportationDetails = transportationDetailsRepository.save(transportationDetails);
-        return new ResponseEntity<>(transportationDetails, HttpStatus.CREATED);
+    public ResponseEntity<TransportationDetailsModel> createTransportationDetail(@RequestBody TransportationDetailsDto transportationDetailsDto) {
+        TransportationDetailsModel newTransportationDetail = transportationDetailsService.createTransportationDetail(transportationDetailsDto);
+        return new ResponseEntity<>(newTransportationDetail, HttpStatus.CREATED);
     }
 
-    private TransportationDetails convertToEntity(TransportationDTO dto) {
-        TransportationDetails transportationDetails = new TransportationDetails();
-        transportationDetails.setVehicleType(dto.getVehicleType());
-        transportationDetails.setVehicleNumberPlate(dto.getVehicleNumberPlate());
-        transportationDetails.setDepartureTime(dto.getDepartureTime());
-        transportationDetails.setReturnTime(dto.getReturnTime());
-        transportationDetails.setMileage(dto.getMileage());
-        //Handle the rest of the mapping
-        return transportationDetails;
+    @GetMapping("/transportationDetails/{id}")
+    public ResponseEntity<TransportationDetailsModel> getTransportationDetail(@PathVariable Integer id) {
+        TransportationDetailsModel transportationDetail = transportationDetailsService.getTransportationDetailById(id);
+        return ResponseEntity.ok(transportationDetail);
     }
 
     @GetMapping("/transportationDetails")
-    public ResponseEntity<List<TransportationDetails>> getAllTransportDetails() {
-        List<TransportationDetails> transportationDetails = transportationDetailsRepository.findAll();
+    public ResponseEntity<List<TransportationDetailsModel>> getAllTransportationDetails() {
+        List<TransportationDetailsModel> transportationDetails = transportationDetailsService.getAllTransportationDetails();
         return ResponseEntity.ok(transportationDetails);
     }
 
-   // @RequestMapping(value = "/hello", method = RequestMethod.GET)
-   // public String greeting() {return "Hello SpringBoot";}
+    @PutMapping("/transportationDetails/{id}")
+    public ResponseEntity<TransportationDetailsModel> updateTransportationDetail(@PathVariable Integer id, @RequestBody TransportationDetailsDto transportationDetailsDto) {
+        TransportationDetailsModel updatedTransportationDetail = transportationDetailsService.updateTransportationDetail(id, transportationDetailsDto);
+        return ResponseEntity.ok(updatedTransportationDetail);
+    }
 
-  //  @RequestMapping(value = "/hello", method = RequestMethod.POST)
-    //public String helloWorld2() { return "My First POST API"; }
-
-   // @RequestMapping(value = "/transportationDetails", method = RequestMethod.POST)
-   // public TransportationDetails save(@RequestBody TransportationDetails transportationDetails) {return transportationDetailsService.save(transportationDetails);}
+    @DeleteMapping("/transportationDetails/{id}")
+    public ResponseEntity<?> deleteTransportationDetail(@PathVariable Integer id) {
+        transportationDetailsService.deleteTransportationDetail(id);
+        return ResponseEntity.ok("Transportation Details deleted successfully");
+    }
 }

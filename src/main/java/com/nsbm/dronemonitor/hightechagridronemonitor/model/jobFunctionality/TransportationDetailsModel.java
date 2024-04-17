@@ -1,13 +1,18 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality;
 
-import jakarta.persistence.*;
-import jdk.jfr.Label;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
 import java.util.Date;
+
 
 @Entity
 @Table(name = "transportation_details")
-public class TransportationDetails {
-
+public class TransportationDetailsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +20,13 @@ public class TransportationDetails {
     private String vehicleType;
     private String vehicleNumberPlate;
 
-    private Date departureTime;
-    private Date startTime;
+    private String departureTime;
+    private String startTime;
     private String mileage;
-    private int pilotId;
+    private Date transportDate;
+    private String pilotId;
+
+
 
     public int getTransPortId() {
         return transPortId;
@@ -44,19 +52,19 @@ public class TransportationDetails {
         this.vehicleNumberPlate = vehicleNumberPlate;
     }
 
-    public Date getDepartureTime() {
+    public String getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
 
-    public Date getstartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setstartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
@@ -68,13 +76,23 @@ public class TransportationDetails {
         this.mileage = mileage;
     }
 
-    public int getPilotId() {
+    public Date getTransportDate() {
+        return transportDate;
+    }
+
+    public void setTransportDate(Date transportDate) {
+        this.transportDate = transportDate;
+    }
+
+    public String getPilotId() {
         return pilotId;
     }
 
-    public void setPilotId(int pilotId) {
+    public void setPilotId(String pilotId) {
         this.pilotId = pilotId;
     }
+
+
 
 
 

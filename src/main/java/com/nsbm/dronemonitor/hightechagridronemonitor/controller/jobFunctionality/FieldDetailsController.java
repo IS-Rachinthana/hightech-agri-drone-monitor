@@ -1,53 +1,51 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.FieldDetailsDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.FieldDetails;
-import com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.FieldDetailsRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.FieldDetailsDto;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.FieldDetailsModel;
+import com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality.FieldDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 
 @RestController
+//@RequestMapping("/fieldDetails")
 public class FieldDetailsController {
+
     @Autowired
-    //FieldDetailsService fieldDetailsService;
-    private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.FieldDetailsRepository fieldDetailsRepository;
+    private FieldDetailsService fieldDetailsService;
 
     @PostMapping("/fieldDetails")
-    public ResponseEntity<FieldDetails> save(@RequestBody FieldDetailsDTO fieldDetailsDTO) {
-        FieldDetails fieldDetails = convertToEntity(fieldDetailsDTO);
-        fieldDetails = fieldDetailsRepository.save(fieldDetails);
-        return new ResponseEntity<>(fieldDetails, HttpStatus.CREATED);
+    public ResponseEntity<FieldDetailsModel> createFieldDetail(@RequestBody FieldDetailsDto fieldDetailsDto) {
+        FieldDetailsModel newFieldDetail = fieldDetailsService.createFieldDetail(fieldDetailsDto);
+        return new ResponseEntity<>(newFieldDetail, HttpStatus.CREATED);
     }
 
-    private FieldDetails convertToEntity(FieldDetailsDTO dto) {
-        FieldDetails fieldDetails = new FieldDetails();
-        fieldDetails.setPaddyFieldSize(dto.getPaddyFieldSize());
-        fieldDetails.setArea(dto.getArea());
-        //Handle the rest of the mapping
-        return fieldDetails;
+    @GetMapping("/fieldDetails/{id}")
+    public ResponseEntity<FieldDetailsModel> getFieldDetail(@PathVariable Integer id) {
+        FieldDetailsModel fieldDetail = fieldDetailsService.getFieldDetailById(id);
+        return ResponseEntity.ok(fieldDetail);
     }
 
-    @GetMapping("//fieldDetails")
-    public ResponseEntity<List<FieldDetails>> getAllFieldDetails() {
-        List<FieldDetails> fieldDetails = fieldDetailsRepository.findAll();
+    @GetMapping("/fieldDetails")
+    public ResponseEntity<List<FieldDetailsModel>> getAllFieldDetails() {
+        List<FieldDetailsModel> fieldDetails = fieldDetailsService.getAllFieldDetails();
         return ResponseEntity.ok(fieldDetails);
     }
 
-   // @RequestMapping(value = "/hello", method = RequestMethod.GET)
-   // public String greeting() {return "Hello SpringBoot";}
+    @PutMapping("/fieldDetails/{id}")
+    public ResponseEntity<FieldDetailsModel> updateFieldDetail(@PathVariable Integer id, @RequestBody FieldDetailsDto fieldDetailsDto) {
+        FieldDetailsModel updatedFieldDetail = fieldDetailsService.updateFieldDetail(id, fieldDetailsDto);
+        return ResponseEntity.ok(updatedFieldDetail);
+    }
 
-  //  @RequestMapping(value = "/hello", method = RequestMethod.POST)
-   // public String helloWorld2() { return "My First POST API"; }
-
-   // @RequestMapping(value = "/fieldDetails", method = RequestMethod.POST)
-   // public FieldDetails save(@RequestBody FieldDetails fieldDetails) {return fieldDetailsService.save(fieldDetails);}
+    @DeleteMapping("/fieldDetails/{id}")
+    public ResponseEntity<?> deleteFieldDetail(@PathVariable Integer id) {
+        fieldDetailsService.deleteFieldDetail(id);
+        return ResponseEntity.ok("Field Details deleted successfully");
+    }
 }
 
 

@@ -1,10 +1,24 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality;
 
-public class ClientInformationDTO {
+import java.util.Date;
+
+public class ClientInformationDto {
     private String clientName;
-    private int contactNumber;
+    private String contactNumber;
     private String clientEmail;
     private String clientAddress;
+
+    private String clientFiledName;
+
+    public String getClientFiledName() {
+        return clientFiledName;
+    }
+
+    public void setClientFiledName(String clientFiledName) {
+        this.clientFiledName = clientFiledName;
+    }
+
+
 
     public String getClientName() {
         return clientName;
@@ -14,11 +28,11 @@ public class ClientInformationDTO {
         this.clientName = clientName;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 

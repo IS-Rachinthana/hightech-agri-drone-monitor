@@ -1,53 +1,49 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.controller.jobFunctionality;
 
-import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.JobDetailsDTO;
-import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.JobDetails;
-import com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.JobDetailsRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.jobFunctionality.JobDetailsDto;
+import com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality.JobDetailsModel;
+import com.nsbm.dronemonitor.hightechagridronemonitor.service.jobFuctionality.JobDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @RestController
+//@RequestMapping("/jobDetails")
 public class JobDetailsController {
+
     @Autowired
-    //JobDetailsService jobDetailsService;
-    private com.nsbm.dronemonitor.hightechagridronemonitor.repository.jobFuctionality.JobDetailsRepository jobDetailsRepository;
+    private JobDetailsService jobDetailsService;
 
-    @PostMapping("/jobDescription")
-    public ResponseEntity<JobDetails> save(@RequestBody JobDetailsDTO jobDetailsDTO) {
-        JobDetails jobDetails = convertToEntity(jobDetailsDTO);
-        jobDetails = jobDetailsRepository.save(jobDetails);
-        return new ResponseEntity<>(jobDetails, HttpStatus.CREATED);
+    @PostMapping("/jobDetails")
+    public ResponseEntity<JobDetailsModel> createJobDetail(@RequestBody JobDetailsDto jobDetailsDto) {
+        JobDetailsModel newJobDetail = jobDetailsService.createJobDetail(jobDetailsDto);
+        return new ResponseEntity<>(newJobDetail, HttpStatus.CREATED);
     }
 
-    private JobDetails convertToEntity(JobDetailsDTO dto) {
-        JobDetails jobDetails = new JobDetails();
-        jobDetails.setInventoryId(dto.getInventoryId());
-        jobDetails.setDate(dto.getDate());
-        jobDetails.setFieldLocation(dto.getFieldLocation());
-        jobDetails.setCompanyProjectName(dto.getCompanyProjectName());
-        //Handle the rest of the mapping
-        return jobDetails;
+    @GetMapping("/jobDetails/{id}")
+    public ResponseEntity<JobDetailsModel> getJobDetail(@PathVariable Integer id) {
+        JobDetailsModel jobDetail = jobDetailsService.getJobDetailById(id);
+        return ResponseEntity.ok(jobDetail);
     }
 
-    @GetMapping("/jobDescription")
-    public ResponseEntity<List<JobDetails>> getAllJobDetails() {
-        List<JobDetails> jobDetails = jobDetailsRepository.findAll();
+    @GetMapping("/jobDetails")
+    public ResponseEntity<List<JobDetailsModel>> getAllJobDetails() {
+        List<JobDetailsModel> jobDetails = jobDetailsService.getAllJobDetails();
         return ResponseEntity.ok(jobDetails);
     }
 
-   // @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    //public String greeting() {return "Hello SpringBoot";}
+    @PutMapping("/jobDetails/{id}")
+    public ResponseEntity<JobDetailsModel> updateJobDetail(@PathVariable Integer id, @RequestBody JobDetailsDto jobDetailsDto) {
+        JobDetailsModel updatedJobDetail = jobDetailsService.updateJobDetail(id, jobDetailsDto);
+        return ResponseEntity.ok(updatedJobDetail);
+    }
 
-   // @RequestMapping(value = "/hello", method = RequestMethod.POST)
-   // public String helloWorld2() { return "My First POST API"; }
-
-   // @RequestMapping(value = "/jobDetails", method = RequestMethod.POST)
-   // public JobDetails save(@RequestBody JobDetails jobDetails) {return jobDetailsService.save(jobDetails);}
+    @DeleteMapping("/jobDetails/{id}")
+    public ResponseEntity<?> deleteJobDetail(@PathVariable Integer id) {
+        jobDetailsService.deleteJobDetail(id);
+        return ResponseEntity.ok("Job Details deleted successfully");
+    }
 }
 

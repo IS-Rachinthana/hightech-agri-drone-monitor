@@ -1,36 +1,27 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.model.jobFunctionality;
 
-import jakarta.persistence.*;
-import jdk.jfr.Label;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "field_details")
-public class FieldDetails {
-
-
-
+public class FieldDetailsModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int fieldId;
 
     private String fieldName;
     private String fieldSize;
+
     private String area;
 
-    private int clientId;
+    private String clientId;
 
-    private int fieldDescription;
-
-    public int getFieldDescription() {
-        return fieldDescription;
-    }
-
-    public void setFieldDescription(int fieldDescription) {
-        this.fieldDescription = fieldDescription;
-    }
-
-
+    private String fieldDescription;
 
     public int getFieldId() {
         return fieldId;
@@ -64,14 +55,21 @@ public class FieldDetails {
         this.area = area;
     }
 
-    public int getClientId() {
+    public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(String clientId) {
         this.clientId = clientId;
     }
 
+    public String getFieldDescription() {
+        return fieldDescription;
+    }
+
+    public void setFieldDescription(String fieldDescription) {
+        this.fieldDescription = fieldDescription;
+    }
 
 
 

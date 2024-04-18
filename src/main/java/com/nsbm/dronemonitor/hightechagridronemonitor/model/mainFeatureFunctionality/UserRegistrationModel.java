@@ -3,12 +3,9 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.model.mainFeatureFunction
 
 import jakarta.persistence.*;
 
-import java.net.PasswordAuthentication;
-import java.util.Date;
-
 @Entity
 @Table(name = "user_registration")
-public class userRegistrationModel {
+public class UserRegistrationModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

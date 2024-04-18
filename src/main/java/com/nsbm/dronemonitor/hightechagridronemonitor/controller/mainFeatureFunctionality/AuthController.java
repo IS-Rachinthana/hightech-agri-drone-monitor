@@ -3,7 +3,7 @@ package com.nsbm.dronemonitor.hightechagridronemonitor.controller.mainFeatureFun
 import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.LoginRequestDto;
 import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.LoginResponseDto;
 import com.nsbm.dronemonitor.hightechagridronemonitor.model.mainFeatureFunctionality.UserModel;
-import com.nsbm.dronemonitor.hightechagridronemonitor.repository.mainFeatureFunctionality.userRepository;
+import com.nsbm.dronemonitor.hightechagridronemonitor.repository.mainFeatureFunctionality.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import com.nsbm.dronemonitor.hightechagridronemonitor.util.JwtUtil;
 public class AuthController {
 
     @Autowired
-    private userRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

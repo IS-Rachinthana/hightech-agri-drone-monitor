@@ -1,8 +1,6 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality;
 
-import java.net.PasswordAuthentication;
-
-public class userRegistrationDto {
+public class UserRegistrationDto {
     private int userId;
 
     public int getUserId() {

@@ -1,5 +1,7 @@
 server:
   port: 3001
+  servlet:
+    context-path: /api
 
 management:
   endpoints:
@@ -19,8 +21,3 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: update
-
-
-
-
-

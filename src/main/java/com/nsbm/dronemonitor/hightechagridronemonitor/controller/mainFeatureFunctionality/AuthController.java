@@ -1,5 +1,7 @@
 package com.nsbm.dronemonitor.hightechagridronemonitor.controller.mainFeatureFunctionality;
 
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.AuthenticateRequestDto;
+import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.AuthenticateResponseDto;
 import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.LoginRequestDto;
 import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.LoginResponseDto;
 import com.nsbm.dronemonitor.hightechagridronemonitor.model.mainFeatureFunctionality.UserModel;
@@ -41,5 +43,28 @@ public class AuthController {
             String message = "FAIL";
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponseDto(message));
         }
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<Object> authenticateRoute(@RequestBody AuthenticateRequestDto authenticateRequest) {
+        String token = authenticateRequest.getUserToken(); // Assuming token is used for some internal checks
+        // Perform authentication logic...
+        String email = jwtUtil.DecryptToken(token);
+        if(email==null){
+            return ResponseEntity.ok(new Object() {
+                public final String message = "FAIL";
+            });
+        }
+        else{
+            UserModel user = userRepository.findByUserEmail(email);
+
+            return ResponseEntity.ok(new Object() {
+                public final String message = "SUCCESS";
+                public final String email = user.getUserEmail();
+                public final String name = user.getUserName();
+                public final String role = user.getUserRole();
+            });
+        }
+
     }
 }

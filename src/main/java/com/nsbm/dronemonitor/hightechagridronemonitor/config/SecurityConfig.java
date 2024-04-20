@@ -27,10 +27,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 // Configure URL authorization
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/registration").permitAll() // Allow unrestricted access to /registration
-                        .requestMatchers("/login").permitAll() // Allow unrestricted access to /login
-                        .requestMatchers("/authenticate").permitAll()
-                        .anyRequest().authenticated() // Require authentication for all other requests
+//                        .requestMatchers("/registration").permitAll()
+//                        .requestMatchers("/login").permitAll()
+                        .anyRequest().permitAll() // Require authentication for all other requests
                 )
 
                 // Configure HTTP Basic authentication

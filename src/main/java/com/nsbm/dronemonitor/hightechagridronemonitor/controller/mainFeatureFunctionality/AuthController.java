@@ -36,10 +36,12 @@ public class AuthController {
         // Check if user exists and if the provided password matches the stored password
         if (user != null && passwordEncoder.matches(password, user.getUserPassword())) {
             String token = jwtUtil.generateToken(email);
+            String role = user.getUserRole();
 
 
-            return ResponseEntity.ok(new LoginResponseDto("SUCCESS", token));
+            return ResponseEntity.ok(new LoginResponseDto("SUCCESS", token , role));
         } else {
+
             String message = "FAIL";
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponseDto(message));
         }

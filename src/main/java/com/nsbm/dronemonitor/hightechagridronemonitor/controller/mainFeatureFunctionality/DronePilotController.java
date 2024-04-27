@@ -4,11 +4,15 @@ import com.nsbm.dronemonitor.hightechagridronemonitor.model.mainFeatureFunctiona
 import com.nsbm.dronemonitor.hightechagridronemonitor.repository.mainFeatureFunctionality.DronePilotRepository;
 import com.nsbm.dronemonitor.hightechagridronemonitor.service.mainFeatureFunctionality.DronePilotService;
 
+import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.nsbm.dronemonitor.hightechagridronemonitor.dto.mainFeatureFunctionality.DronePilotDto;
+import jakarta.persistence.EntityManager;
+
+
 
 import java.util.List;
 
@@ -18,6 +22,12 @@ public class DronePilotController {
 
     @Autowired
     private DronePilotService dronePilotService;
+
+    public DronePilotController(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    private final EntityManager entityManager;
 
     @PostMapping("/dronePilots")
     public ResponseEntity<DronePilotModel> createDronePilot(@RequestBody DronePilotDto dronePilotDto) {
@@ -31,11 +41,19 @@ public class DronePilotController {
         return ResponseEntity.ok(dronePilot);
     }
 
+    @GetMapping("/pilot_count")
+    public Long getDronePilotCount() {
+        Query query = entityManager.createQuery("SELECT COUNT(p) FROM DronePilotModel p");
+        return (Long) query.getSingleResult();
+    }
+
     @GetMapping("/dronePilots")
     public ResponseEntity<List<DronePilotModel>> getAllDronePilots() {
         List<DronePilotModel> dronePilots = dronePilotService.getAllDronePilots();
         return ResponseEntity.ok(dronePilots);
     }
+
+
 
     @PutMapping("/dronePilots/{id}")
     public ResponseEntity<DronePilotModel> updateDronePilot(@PathVariable Integer id, @RequestBody DronePilotDto dronePilotDto) {
